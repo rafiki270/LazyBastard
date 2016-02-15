@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		150F07FA1C6D4ADF00709858 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F07F91C6D4ADF00709858 /* AppDelegate.swift */; };
-		150F07FC1C6D4ADF00709858 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F07FB1C6D4ADF00709858 /* ViewController.swift */; };
-		150F07FF1C6D4ADF00709858 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150F07FD1C6D4ADF00709858 /* Main.storyboard */; };
+		150F07FA1C6D4ADF00709858 /* LABAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F07F91C6D4ADF00709858 /* LABAppDelegate.swift */; };
+		150F07FC1C6D4ADF00709858 /* LABHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F07FB1C6D4ADF00709858 /* LABHomeViewController.swift */; };
 		150F08021C6D4ADF00709858 /* LazyBastard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 150F08001C6D4ADF00709858 /* LazyBastard.xcdatamodeld */; };
 		150F08041C6D4ADF00709858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150F08031C6D4ADF00709858 /* Assets.xcassets */; };
 		150F08071C6D4ADF00709858 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150F08051C6D4ADF00709858 /* LaunchScreen.storyboard */; };
 		150F08121C6D4AE000709858 /* LazyBastardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08111C6D4AE000709858 /* LazyBastardTests.swift */; };
 		150F081D1C6D4AE000709858 /* LazyBastardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F081C1C6D4AE000709858 /* LazyBastardUITests.swift */; };
+		150F08331C6D515200709858 /* LABBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08321C6D515200709858 /* LABBasicViewController.swift */; };
+		150F08381C6D56B900709858 /* LABEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08341C6D56B900709858 /* LABEvent+CoreDataProperties.swift */; };
+		150F08391C6D56B900709858 /* LABEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08351C6D56B900709858 /* LABEvent.swift */; };
+		150F083A1C6D56B900709858 /* LABTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08361C6D56B900709858 /* LABTask+CoreDataProperties.swift */; };
+		150F083B1C6D56B900709858 /* LABTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08371C6D56B900709858 /* LABTask.swift */; };
+		150F083E1C6D571E00709858 /* LABTasksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F083D1C6D571E00709858 /* LABTasksTableView.swift */; };
+		150F08421C6D574300709858 /* LABVotingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08411C6D574300709858 /* LABVotingView.swift */; };
+		150F08451C6D5DBD00709858 /* LABTasksDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08441C6D5DBD00709858 /* LABTasksDataSource.swift */; };
+		150F08491C6DF1E200709858 /* LABStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08481C6DF1E200709858 /* LABStatsView.swift */; };
+		150F084B1C6DF20700709858 /* LABView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F084A1C6DF20700709858 /* LABView.swift */; };
+		150F084D1C6DF8C500709858 /* LABConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F084C1C6DF8C500709858 /* LABConfig.swift */; };
+		150F084F1C6DF8D200709858 /* LABTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F084E1C6DF8D200709858 /* LABTheme.swift */; };
+		150F08521C6DFEB600709858 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08511C6DFEB600709858 /* UIColor+Helpers.swift */; };
+		150F08541C6E142800709858 /* LABTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08531C6E142800709858 /* LABTaskTableViewCell.swift */; };
+		150F08561C6E144C00709858 /* LABTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08551C6E144C00709858 /* LABTableViewCell.swift */; };
+		150F08591C6E1C3100709858 /* LABCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F08581C6E1C3100709858 /* LABCoreData.swift */; };
+		150F085B1C6E4CD100709858 /* LABAddTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F085A1C6E4CD100709858 /* LABAddTaskTableViewCell.swift */; };
+		AAEC17758B84A3905E6BC9EE /* Pods_LazyBastard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4017433B7FE9DE0250C64A45 /* Pods_LazyBastard.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +53,8 @@
 
 /* Begin PBXFileReference section */
 		150F07F61C6D4ADF00709858 /* LazyBastard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazyBastard.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		150F07F91C6D4ADF00709858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		150F07FB1C6D4ADF00709858 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		150F07FE1C6D4ADF00709858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		150F07F91C6D4ADF00709858 /* LABAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LABAppDelegate.swift; sourceTree = "<group>"; };
+		150F07FB1C6D4ADF00709858 /* LABHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LABHomeViewController.swift; sourceTree = "<group>"; };
 		150F08011C6D4ADF00709858 /* LazyBastard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LazyBastard.xcdatamodel; sourceTree = "<group>"; };
 		150F08031C6D4ADF00709858 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		150F08061C6D4ADF00709858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +65,26 @@
 		150F08181C6D4AE000709858 /* LazyBastardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LazyBastardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		150F081C1C6D4AE000709858 /* LazyBastardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyBastardUITests.swift; sourceTree = "<group>"; };
 		150F081E1C6D4AE000709858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		150F08321C6D515200709858 /* LABBasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABBasicViewController.swift; sourceTree = "<group>"; };
+		150F08341C6D56B900709858 /* LABEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LABEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		150F08351C6D56B900709858 /* LABEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABEvent.swift; sourceTree = "<group>"; };
+		150F08361C6D56B900709858 /* LABTask+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LABTask+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		150F08371C6D56B900709858 /* LABTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABTask.swift; sourceTree = "<group>"; };
+		150F083D1C6D571E00709858 /* LABTasksTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABTasksTableView.swift; sourceTree = "<group>"; };
+		150F08411C6D574300709858 /* LABVotingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABVotingView.swift; sourceTree = "<group>"; };
+		150F08441C6D5DBD00709858 /* LABTasksDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABTasksDataSource.swift; sourceTree = "<group>"; };
+		150F08481C6DF1E200709858 /* LABStatsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABStatsView.swift; sourceTree = "<group>"; };
+		150F084A1C6DF20700709858 /* LABView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABView.swift; sourceTree = "<group>"; };
+		150F084C1C6DF8C500709858 /* LABConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABConfig.swift; sourceTree = "<group>"; };
+		150F084E1C6DF8D200709858 /* LABTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABTheme.swift; sourceTree = "<group>"; };
+		150F08511C6DFEB600709858 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
+		150F08531C6E142800709858 /* LABTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABTaskTableViewCell.swift; sourceTree = "<group>"; };
+		150F08551C6E144C00709858 /* LABTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABTableViewCell.swift; sourceTree = "<group>"; };
+		150F08581C6E1C3100709858 /* LABCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABCoreData.swift; sourceTree = "<group>"; };
+		150F085A1C6E4CD100709858 /* LABAddTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LABAddTaskTableViewCell.swift; sourceTree = "<group>"; };
+		245106C73A4A0CA70D3326D8 /* Pods-LazyBastard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyBastard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyBastard/Pods-LazyBastard.debug.xcconfig"; sourceTree = "<group>"; };
+		4017433B7FE9DE0250C64A45 /* Pods_LazyBastard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyBastard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9FDFF136C70A05ADCA9E09B /* Pods-LazyBastard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyBastard.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyBastard/Pods-LazyBastard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEC17758B84A3905E6BC9EE /* Pods_LazyBastard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +120,8 @@
 				150F08101C6D4AE000709858 /* LazyBastardTests */,
 				150F081B1C6D4AE000709858 /* LazyBastardUITests */,
 				150F07F71C6D4ADF00709858 /* Products */,
+				29A7C3EF4AE1BFFDC4F238C3 /* Pods */,
+				B9843165DEEEE9126DA3A064 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +138,14 @@
 		150F07F81C6D4ADF00709858 /* LazyBastard */ = {
 			isa = PBXGroup;
 			children = (
-				150F07F91C6D4ADF00709858 /* AppDelegate.swift */,
-				150F07FB1C6D4ADF00709858 /* ViewController.swift */,
-				150F07FD1C6D4ADF00709858 /* Main.storyboard */,
-				150F08031C6D4ADF00709858 /* Assets.xcassets */,
-				150F08051C6D4ADF00709858 /* LaunchScreen.storyboard */,
-				150F08081C6D4ADF00709858 /* Info.plist */,
-				150F08001C6D4ADF00709858 /* LazyBastard.xcdatamodeld */,
+				150F08501C6DFE8600709858 /* Extensions */,
+				150F082E1C6D4C7500709858 /* Config */,
+				150F082D1C6D4C6F00709858 /* Libs */,
+				150F082C1C6D4C6900709858 /* Model */,
+				150F082B1C6D4C6300709858 /* Views */,
+				150F082A1C6D4B5D00709858 /* View controllers */,
+				150F07F91C6D4ADF00709858 /* LABAppDelegate.swift */,
+				150F082F1C6D4CA600709858 /* Supporting files */,
 			);
 			path = LazyBastard;
 			sourceTree = "<group>";
@@ -128,6 +168,166 @@
 			path = LazyBastardUITests;
 			sourceTree = "<group>";
 		};
+		150F082A1C6D4B5D00709858 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				150F08301C6D4CC900709858 /* Home */,
+				150F08311C6D50FF00709858 /* Basic */,
+			);
+			name = "View controllers";
+			sourceTree = "<group>";
+		};
+		150F082B1C6D4C6300709858 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				150F08471C6DF18400709858 /* Stats */,
+				150F08401C6D572E00709858 /* Voting */,
+				150F08461C6D630900709858 /* Basic */,
+				150F083C1C6D570500709858 /* Tasks */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		150F082C1C6D4C6900709858 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				150F08341C6D56B900709858 /* LABEvent+CoreDataProperties.swift */,
+				150F08351C6D56B900709858 /* LABEvent.swift */,
+				150F08361C6D56B900709858 /* LABTask+CoreDataProperties.swift */,
+				150F08371C6D56B900709858 /* LABTask.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		150F082D1C6D4C6F00709858 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				150F08571C6E1AA800709858 /* Data */,
+				150F08431C6D5D9B00709858 /* Data sources */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		150F082E1C6D4C7500709858 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				150F084C1C6DF8C500709858 /* LABConfig.swift */,
+				150F084E1C6DF8D200709858 /* LABTheme.swift */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		150F082F1C6D4CA600709858 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				150F08031C6D4ADF00709858 /* Assets.xcassets */,
+				150F08051C6D4ADF00709858 /* LaunchScreen.storyboard */,
+				150F08081C6D4ADF00709858 /* Info.plist */,
+				150F08001C6D4ADF00709858 /* LazyBastard.xcdatamodeld */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		150F08301C6D4CC900709858 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				150F07FB1C6D4ADF00709858 /* LABHomeViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		150F08311C6D50FF00709858 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				150F08321C6D515200709858 /* LABBasicViewController.swift */,
+			);
+			name = Basic;
+			sourceTree = "<group>";
+		};
+		150F083C1C6D570500709858 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				150F083F1C6D572400709858 /* Cells */,
+				150F083D1C6D571E00709858 /* LABTasksTableView.swift */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		150F083F1C6D572400709858 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				150F08531C6E142800709858 /* LABTaskTableViewCell.swift */,
+				150F085A1C6E4CD100709858 /* LABAddTaskTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		150F08401C6D572E00709858 /* Voting */ = {
+			isa = PBXGroup;
+			children = (
+				150F08411C6D574300709858 /* LABVotingView.swift */,
+			);
+			name = Voting;
+			sourceTree = "<group>";
+		};
+		150F08431C6D5D9B00709858 /* Data sources */ = {
+			isa = PBXGroup;
+			children = (
+				150F08441C6D5DBD00709858 /* LABTasksDataSource.swift */,
+			);
+			name = "Data sources";
+			sourceTree = "<group>";
+		};
+		150F08461C6D630900709858 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				150F084A1C6DF20700709858 /* LABView.swift */,
+				150F08551C6E144C00709858 /* LABTableViewCell.swift */,
+			);
+			name = Basic;
+			sourceTree = "<group>";
+		};
+		150F08471C6DF18400709858 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				150F08481C6DF1E200709858 /* LABStatsView.swift */,
+			);
+			name = Stats;
+			sourceTree = "<group>";
+		};
+		150F08501C6DFE8600709858 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				150F08511C6DFEB600709858 /* UIColor+Helpers.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		150F08571C6E1AA800709858 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				150F08581C6E1C3100709858 /* LABCoreData.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		29A7C3EF4AE1BFFDC4F238C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				245106C73A4A0CA70D3326D8 /* Pods-LazyBastard.debug.xcconfig */,
+				A9FDFF136C70A05ADCA9E09B /* Pods-LazyBastard.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9843165DEEEE9126DA3A064 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4017433B7FE9DE0250C64A45 /* Pods_LazyBastard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +335,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 150F08211C6D4AE000709858 /* Build configuration list for PBXNativeTarget "LazyBastard" */;
 			buildPhases = (
+				2BE9003C76EA404C2AB25621 /* Check Pods Manifest.lock */,
 				150F07F21C6D4ADF00709858 /* Sources */,
 				150F07F31C6D4ADF00709858 /* Frameworks */,
 				150F07F41C6D4ADF00709858 /* Resources */,
+				583F5B050EC02BFC653B9D9D /* Copy Pods Resources */,
+				60E5ABCBEDC5941C9F0C9967 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +393,7 @@
 		150F07EE1C6D4ADF00709858 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LAB;
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Ridiculous Innovations";
@@ -234,7 +438,6 @@
 			files = (
 				150F08071C6D4ADF00709858 /* LaunchScreen.storyboard in Resources */,
 				150F08041C6D4ADF00709858 /* Assets.xcassets in Resources */,
-				150F07FF1C6D4ADF00709858 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +457,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2BE9003C76EA404C2AB25621 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		583F5B050EC02BFC653B9D9D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LazyBastard/Pods-LazyBastard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60E5ABCBEDC5941C9F0C9967 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LazyBastard/Pods-LazyBastard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		150F07F21C6D4ADF00709858 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				150F07FC1C6D4ADF00709858 /* ViewController.swift in Sources */,
+				150F08391C6D56B900709858 /* LABEvent.swift in Sources */,
+				150F08451C6D5DBD00709858 /* LABTasksDataSource.swift in Sources */,
+				150F083A1C6D56B900709858 /* LABTask+CoreDataProperties.swift in Sources */,
+				150F08561C6E144C00709858 /* LABTableViewCell.swift in Sources */,
+				150F084D1C6DF8C500709858 /* LABConfig.swift in Sources */,
+				150F083B1C6D56B900709858 /* LABTask.swift in Sources */,
+				150F083E1C6D571E00709858 /* LABTasksTableView.swift in Sources */,
+				150F07FC1C6D4ADF00709858 /* LABHomeViewController.swift in Sources */,
+				150F08381C6D56B900709858 /* LABEvent+CoreDataProperties.swift in Sources */,
+				150F084F1C6DF8D200709858 /* LABTheme.swift in Sources */,
+				150F085B1C6E4CD100709858 /* LABAddTaskTableViewCell.swift in Sources */,
 				150F08021C6D4ADF00709858 /* LazyBastard.xcdatamodeld in Sources */,
-				150F07FA1C6D4ADF00709858 /* AppDelegate.swift in Sources */,
+				150F08591C6E1C3100709858 /* LABCoreData.swift in Sources */,
+				150F08421C6D574300709858 /* LABVotingView.swift in Sources */,
+				150F08521C6DFEB600709858 /* UIColor+Helpers.swift in Sources */,
+				150F07FA1C6D4ADF00709858 /* LABAppDelegate.swift in Sources */,
+				150F084B1C6DF20700709858 /* LABView.swift in Sources */,
+				150F08541C6E142800709858 /* LABTaskTableViewCell.swift in Sources */,
+				150F08491C6DF1E200709858 /* LABStatsView.swift in Sources */,
+				150F08331C6D515200709858 /* LABBasicViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +565,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		150F07FD1C6D4ADF00709858 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				150F07FE1C6D4ADF00709858 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		150F08051C6D4ADF00709858 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -399,6 +659,7 @@
 		};
 		150F08221C6D4AE000709858 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 245106C73A4A0CA70D3326D8 /* Pods-LazyBastard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LazyBastard/Info.plist;
@@ -410,6 +671,7 @@
 		};
 		150F08231C6D4AE000709858 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9FDFF136C70A05ADCA9E09B /* Pods-LazyBastard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LazyBastard/Info.plist;
@@ -486,6 +748,7 @@
 				150F08231C6D4AE000709858 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		150F08241C6D4AE000709858 /* Build configuration list for PBXNativeTarget "LazyBastardTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +757,7 @@
 				150F08261C6D4AE000709858 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		150F08271C6D4AE000709858 /* Build configuration list for PBXNativeTarget "LazyBastardUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +766,7 @@
 				150F08291C6D4AE000709858 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
