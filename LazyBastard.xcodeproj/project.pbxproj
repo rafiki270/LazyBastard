@@ -34,6 +34,7 @@
 		15A4750D1C7E21DC00C0C568 /* StagesOfLazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4750C1C7E21DC00C0C568 /* StagesOfLazy.swift */; };
 		15A4750F1C7E762700C0C568 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4750E1C7E762700C0C568 /* NSDate+Helpers.swift */; };
 		15A475111C7E780E00C0C568 /* BasicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A475101C7E780E00C0C568 /* BasicTableView.swift */; };
+		15A475131C7E83C400C0C568 /* UIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A475121C7E83C400C0C568 /* UIView+Borders.swift */; };
 		AAEC17758B84A3905E6BC9EE /* Pods_LazyBastard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4017433B7FE9DE0250C64A45 /* Pods_LazyBastard.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,8 @@
 		15A4750C1C7E21DC00C0C568 /* StagesOfLazy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StagesOfLazy.swift; sourceTree = "<group>"; };
 		15A4750E1C7E762700C0C568 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
 		15A475101C7E780E00C0C568 /* BasicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableView.swift; sourceTree = "<group>"; };
+		15A475121C7E83C400C0C568 /* UIView+Borders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Borders.swift"; sourceTree = "<group>"; };
+		15A475141C7E87BE00C0C568 /* BridgingHeaderFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeaderFile.h; sourceTree = "<group>"; };
 		245106C73A4A0CA70D3326D8 /* Pods-LazyBastard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyBastard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyBastard/Pods-LazyBastard.debug.xcconfig"; sourceTree = "<group>"; };
 		4017433B7FE9DE0250C64A45 /* Pods_LazyBastard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyBastard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9FDFF136C70A05ADCA9E09B /* Pods-LazyBastard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyBastard.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyBastard/Pods-LazyBastard.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 				150F08051C6D4ADF00709858 /* LaunchScreen.storyboard */,
 				150F08081C6D4ADF00709858 /* Info.plist */,
 				150F08001C6D4ADF00709858 /* LazyBastard.xcdatamodeld */,
+				15A475141C7E87BE00C0C568 /* BridgingHeaderFile.h */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -300,6 +304,7 @@
 			children = (
 				150F08511C6DFEB600709858 /* UIColor+Helpers.swift */,
 				15A4750E1C7E762700C0C568 /* NSDate+Helpers.swift */,
+				15A475121C7E83C400C0C568 /* UIView+Borders.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				150F084B1C6DF20700709858 /* BasicView.swift in Sources */,
 				150F08541C6E142800709858 /* TaskTableViewCell.swift in Sources */,
 				15A475111C7E780E00C0C568 /* BasicTableView.swift in Sources */,
+				15A475131C7E83C400C0C568 /* UIView+Borders.swift in Sources */,
 				150F08491C6DF1E200709858 /* StatsTableViewCell.swift in Sources */,
 				150F08331C6D515200709858 /* BasicViewController.swift in Sources */,
 				15A4750D1C7E21DC00C0C568 /* StagesOfLazy.swift in Sources */,
@@ -671,6 +677,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ridiculous-innovations.LazyBastard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/LazyBastard/BridgingHeaderFile.h";
 			};
 			name = Debug;
 		};
@@ -684,6 +691,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ridiculous-innovations.LazyBastard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/LazyBastard/BridgingHeaderFile.h";
 			};
 			name = Release;
 		};

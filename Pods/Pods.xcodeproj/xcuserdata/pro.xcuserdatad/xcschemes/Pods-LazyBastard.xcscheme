@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D6BD50AD40ABBC4A018DC92F"
+               BlueprintIdentifier = "AA51E431003B329B97518D17"
                BuildableName = "Pods_LazyBastard.framework"
                BlueprintName = "Pods-LazyBastard"
                ReferencedContainer = "container:Pods.xcodeproj">

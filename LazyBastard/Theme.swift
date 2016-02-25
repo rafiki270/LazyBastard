@@ -71,7 +71,8 @@ class Theme : NSObject {
     }
     
     static func statusBarColor() -> UIColor {
-        return UIColor(CGColor: Theme.statsGradientColors().last!)
+        //return UIColor(CGColor: Theme.statsGradientColors().last!)
+        return UIColor.clearColor()
     }
     
     // MARK: Helper methods

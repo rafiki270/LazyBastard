@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FontAwesome_swift
+import IoniconsSwift
 
 
 class StatsTableViewCell : BasicTableViewCell {
@@ -41,9 +41,9 @@ class StatsTableViewCell : BasicTableViewCell {
         // Message label
         messageLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(10)
-            make.bottom.equalTo(-26)
+            make.bottom.equalTo(-14)
             make.right.equalTo(-10)
-            make.height.equalTo(16)
+            make.height.equalTo(22)
         }
     }
     
@@ -92,7 +92,8 @@ class StatsTableViewCell : BasicTableViewCell {
     
     private func createAccessoryView() {
         let button: UIButton = UIButton(frame: CGRectMake(0, 0, 44, 44))
-        let img: UIImage = UIImage.fontAwesomeIconWithName(.LineChart, textColor: Theme.statsTextColor(), size: CGSizeMake(20, 20))
+        
+        let img: UIImage = Ionicons.ArrowGraphUpRight.image(30, color: Theme.statsTextColor())
         button.setImage(img, forState: .Normal)
         self.accessoryView = button
     }

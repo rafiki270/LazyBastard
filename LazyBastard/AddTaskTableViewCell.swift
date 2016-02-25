@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import IoniconsSwift
 
 
-class AddTaskTableViewCell : TaskTableViewCell {
+class AddTaskTableViewCell : BasicTableViewCell {
     
     
     // MARK: Layout
@@ -25,6 +26,9 @@ class AddTaskTableViewCell : TaskTableViewCell {
         
         self.textLabel?.textColor = Theme.addTaskTextColor()
         self.detailTextLabel?.textColor = Theme.addTaskTextColor()
+        
+        let image: UIImage = Ionicons.IosPlusOutline.image(35, color: Theme.addTaskTextColor())
+        self.imageView?.image = image
     }
     
     override func addSubviews() {

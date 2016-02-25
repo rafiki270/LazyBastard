@@ -28,11 +28,11 @@ class TaskTableViewCell : BasicTableViewCell {
         
         self.detailTextLabel?.textColor = Theme.tasksTextColor()
         
-        
+        self.addBorder(edges: .Bottom, color: UIColor.whiteColor())
     }
     
-    override func setup() {
-        super.setup()
+    override func addSubviews() {
+        super.addSubviews()
         
         self.configureColors()
     }

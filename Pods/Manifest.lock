@@ -1,16 +1,26 @@
 PODS:
   - Alamofire (3.2.0)
-  - FontAwesome.swift (0.7.0)
+  - IoniconsSwift (2.0.1)
   - SnapKit (0.19.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.2.0)
-  - FontAwesome.swift (~> 0.7.0)
+  - IoniconsSwift (from `http://github.com/rafiki270/IoniconsSwift.git`, branch `cocoapods`)
   - SnapKit (~> 0.19.1)
+
+EXTERNAL SOURCES:
+  IoniconsSwift:
+    :branch: cocoapods
+    :git: http://github.com/rafiki270/IoniconsSwift.git
+
+CHECKOUT OPTIONS:
+  IoniconsSwift:
+    :commit: 544e76850eb3a162d19f1c867e4390af4608ea61
+    :git: http://github.com/rafiki270/IoniconsSwift.git
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
-  FontAwesome.swift: c6e30a1a81716306ff9c81f2d38dda88ac5b8294
+  IoniconsSwift: a595d5a6c254289be67fbfe878d389139dd7de26
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
 
 COCOAPODS: 0.38.2
