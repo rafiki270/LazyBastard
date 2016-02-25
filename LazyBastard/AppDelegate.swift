@@ -11,7 +11,7 @@ import UIKit
 
 @UIApplicationMain
 
-class LABAppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     // MARK: Application delegate mehods
@@ -21,7 +21,9 @@ class LABAppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        let mainViewController: LABHomeViewController = LABHomeViewController(nibName: nil, bundle: nil)
+        Theme.setStatusBarBackgroundColor(Theme.statusBarColor())
+        
+        let mainViewController: HomeViewController = HomeViewController(nibName: nil, bundle: nil)
         let nc: UINavigationController = UINavigationController(rootViewController: mainViewController)
         nc.navigationBarHidden = true
         
@@ -51,7 +53,7 @@ class LABAppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        LABCoreData.saveContext()
+        CoreData.saveContext()
     }
     
     

@@ -1,5 +1,5 @@
 //
-//  LABVotingView.swift
+//  VotingView.swift
 //  LazyBastard
 //
 //  Created by Ondrej Rafaj on 11/02/2016.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class LABVotingView : LABView {
+class VotingView : BasicView {
     
     let downVoteButton: UIButton = UIButton()
     let upVoteButton: UIButton = UIButton()
@@ -36,12 +36,12 @@ class LABVotingView : LABView {
     // MARK: Creating elements
     
     private func configureBackground() {
-        self.backgroundColor = LABTheme.votingBackgroundColor()
+        self.backgroundColor = Theme.votingBackgroundColor()
     }
     
     private func createDownVoteButton() {
-        downVoteButton.titleLabel?.font = LABTheme.appBoldFontWithSize(14)
-        downVoteButton.setTitleColor(LABTheme.votingDownVoteColor(), forState: UIControlState.Normal)
+        downVoteButton.titleLabel?.font = Theme.appBoldFontWithSize(14)
+        downVoteButton.setTitleColor(Theme.votingDownVoteColor(), forState: UIControlState.Normal)
         downVoteButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
         
         downVoteButton.setTitle(NSLocalizedString("Didn't do it :(", comment: "Down-vote text"), forState: UIControlState.Normal)
@@ -50,8 +50,8 @@ class LABVotingView : LABView {
     }
     
     private func createUpVoteButton() {
-        upVoteButton.titleLabel?.font = LABTheme.appBoldFontWithSize(14)
-        upVoteButton.setTitleColor(LABTheme.votingUpVoteColor(), forState: UIControlState.Normal)
+        upVoteButton.titleLabel?.font = Theme.appBoldFontWithSize(14)
+        upVoteButton.setTitleColor(Theme.votingUpVoteColor(), forState: UIControlState.Normal)
         upVoteButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
         
         upVoteButton.setTitle(NSLocalizedString("Just did it! :)", comment: "Up-vote text"), forState: UIControlState.Normal)

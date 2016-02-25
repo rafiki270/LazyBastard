@@ -1,5 +1,5 @@
 //
-//  LABCoreData.swift
+//  CoreData.swift
 //  LazyBastard
 //
 //  Created by Ondrej Rafaj on 12/02/2016.
@@ -9,12 +9,41 @@
 import CoreData
 
 
-class LABCoreData : NSObject {
+let CoreDataDidUpdate: String = "CoreDataDidUpdate"
+let CoreDataDidUpdateTasks: String = "CoreDataDidUpdateTasks"
+let CoreDataDidUpdateEvents: String = "CoreDataDidUpdateEvents"
+
+
+class CoreData : NSObject {
     
-    static let sharedInstance = LABCoreData()
+    static let sharedInstance = CoreData()
     
     
     // MARK: Public core data handlers
+    
+    static internal func pointsForDate(date: NSDate) -> Int16 {
+        let expression = NSExpressionDescription()
+        expression.expression =  NSExpression(forFunction: "sum:", arguments:[NSExpression(forKeyPath: "points")])
+        expression.name = "amountTotal";
+        expression.expressionResultType = NSAttributeType.DoubleAttributeType
+        
+        let fetchRequest = NSFetchRequest(entityName: "Event")
+        
+        fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", date.startOfDay, date.endOfDay!)
+        fetchRequest.propertiesToFetch = [expression]
+        fetchRequest.resultType = .DictionaryResultType
+        
+        do {
+            let results = try self.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest)
+            let resultMap = results[0] as! [String:Double]
+            let amountTotal: Double = resultMap["amountTotal"]!
+            return Int16(amountTotal)
+        }
+        catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        return 0
+    }
     
     static internal func saveContext() {
         self.sharedInstance.saveContext()
@@ -40,6 +69,8 @@ class LABCoreData : NSObject {
         object.date = NSDate.init()
         object.task = task
         
+        self.sharedInstance.postNotification(CoreDataDidUpdateEvents, object: NSNumber(int: Int32(points)))
+        
         return object
     }
     
@@ -57,6 +88,8 @@ class LABCoreData : NSObject {
         object.when = when
         object.done = false
         object.events = nil
+        
+        self.sharedInstance.postNotification(CoreDataDidUpdateTasks)
         
         return object
     }
@@ -115,6 +148,8 @@ class LABCoreData : NSObject {
         if managedObjectContext.hasChanges {
             do {
                 try managedObjectContext.save()
+                
+                self.postNotification(CoreDataDidUpdate)
             }
             catch {
                 // Replace this implementation with code to handle the error appropriately.
@@ -124,6 +159,17 @@ class LABCoreData : NSObject {
                 abort()
             }
         }
+    }
+    
+    // MARK: Helper methods
+    
+    private func postNotification(message: String, object: AnyObject?) {
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.postNotificationName(message, object: object)
+    }
+    
+    private func postNotification(message: String) {
+        self.postNotification(message, object: nil)
     }
     
     

@@ -1,13 +1,16 @@
 PODS:
   - Alamofire (3.2.0)
+  - FontAwesome.swift (0.7.0)
   - SnapKit (0.19.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.2.0)
-  - SnapKit
+  - FontAwesome.swift (~> 0.7.0)
+  - SnapKit (~> 0.19.1)
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  FontAwesome.swift: c6e30a1a81716306ff9c81f2d38dda88ac5b8294
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
 
 COCOAPODS: 0.38.2

@@ -1,5 +1,5 @@
 //
-//  LABTheme.swift
+//  Theme.swift
 //  LazyBastard
 //
 //  Created by Ondrej Rafaj on 12/02/2016.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-struct LABGradient {
+struct Gradient {
     
     var firstColor: UIColor?
     var lastColor: UIColor?
@@ -17,7 +17,7 @@ struct LABGradient {
 }
 
 
-class LABTheme : NSObject {
+class Theme : NSObject {
     
     
     // MARK: Fonts
@@ -68,6 +68,19 @@ class LABTheme : NSObject {
     
     static func addTaskTextColor() -> UIColor {
         return UIColor.whiteColor()
+    }
+    
+    static func statusBarColor() -> UIColor {
+        return UIColor(CGColor: Theme.statsGradientColors().last!)
+    }
+    
+    // MARK: Helper methods
+    
+    static func setStatusBarBackgroundColor(color: UIColor) {
+        guard  let statusBar = UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") as? UIView else {
+            return
+        }
+        statusBar.backgroundColor = color
     }
     
     

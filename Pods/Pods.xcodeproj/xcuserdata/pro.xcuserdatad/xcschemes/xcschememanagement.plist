@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LazyBastard.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>710F42A1B96FA5DAF474875351F0829B</key>
+		<key>A5F3334444C60F96D3FFA48707D65699</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A570BA7E27BE22129208B628B85F62E2</key>
+		<key>B315B701FECF27FDD3C398777A4FE728</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D609ACD4BC0B7FB712AA144FE9FA4EE6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F628AC5C265C86FB47238BD3067C3395</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,8 +1,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.2'
+platform :ios, '8.1'
 use_frameworks!
 inhibit_all_warnings!
 target 'LazyBastard', :exclusive => true do
-    pod 'SnapKit'
+    pod 'SnapKit', '~> 0.19.1'
     pod 'Alamofire', '~> 3.2.0'
+    pod 'FontAwesome.swift', '~> 0.7.0'
 end

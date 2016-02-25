@@ -1,15 +1,15 @@
 //
-//  LABTaskTableViewCell.swift
+//  AddTaskTableViewCell.swift
 //  LazyBastard
 //
 //  Created by Ondrej Rafaj on 12/02/2016.
 //  Copyright © 2016 Ridiculous Innovations. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 
-class LABTaskTableViewCell : LABTableViewCell {
+class AddTaskTableViewCell : TaskTableViewCell {
     
     
     // MARK: Layout
@@ -21,12 +21,10 @@ class LABTaskTableViewCell : LABTableViewCell {
     // MARK: Creating elements
     
     private func configureColors() {
-        self.contentView.backgroundColor = LABTheme.tasksBackgroundColor()
+        self.contentView.backgroundColor = Theme.addTaskBackgroundColor()
         
-        self.textLabel?.textColor = LABTheme.tasksTextColor()
-        self.textLabel?.numberOfLines = 3
-        
-        self.detailTextLabel?.textColor = LABTheme.tasksTextColor()
+        self.textLabel?.textColor = Theme.addTaskTextColor()
+        self.detailTextLabel?.textColor = Theme.addTaskTextColor()
     }
     
     override func addSubviews() {
@@ -34,6 +32,6 @@ class LABTaskTableViewCell : LABTableViewCell {
         
         self.configureColors()
     }
-        
+    
     
 }

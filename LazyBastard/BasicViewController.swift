@@ -1,5 +1,5 @@
 //
-//  LABBasicViewController.swift
+//  BasicViewController.swift
 //  LazyBastard
 //
 //  Created by Ondrej Rafaj on 11/02/2016.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class LABBasicViewController : UIViewController {
+class BasicViewController : UIViewController {
     
     
     // MARK: Layout

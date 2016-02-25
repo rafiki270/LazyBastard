@@ -1,5 +1,5 @@
 //
-//  LABTableViewCell.swift
+//  BasicView.swift
 //  LazyBastard
 //
 //  Created by Ondrej Rafaj on 12/02/2016.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class LABTableViewCell : UITableViewCell {
+class BasicView : UIView {
     
     
     // MARK: Layout
@@ -30,13 +30,13 @@ class LABTableViewCell : UITableViewCell {
         self.init(frame:CGRect.zero)
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         self.addSubviews()
         self.layoutSubviews()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
     }

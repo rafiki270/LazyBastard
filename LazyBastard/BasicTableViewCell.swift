@@ -1,5 +1,5 @@
 //
-//  LABView.swift
+//  BasicTableViewCell.swift
 //  LazyBastard
 //
 //  Created by Ondrej Rafaj on 12/02/2016.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class LABView : UIView {
+class BasicTableViewCell : UITableViewCell {
     
     
     // MARK: Layout
@@ -26,17 +26,22 @@ class LABView : UIView {
     
     // MARK: Initialization
     
+    func setup() {
+        
+    }
+    
     convenience init() {
         self.init(frame:CGRect.zero)
     }
     
-    override init (frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.setup()
         self.addSubviews()
         self.layoutSubviews()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
     }
