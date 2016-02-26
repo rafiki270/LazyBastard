@@ -16,7 +16,7 @@ let CoreDataDidUpdateEvents: String = "CoreDataDidUpdateEvents"
 
 class CoreData : NSObject {
     
-    static let sharedInstance = CoreData()
+    static let sharedInstance: CoreData = CoreData()
     
     
     // MARK: Public core data handlers
