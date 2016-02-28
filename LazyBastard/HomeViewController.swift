@@ -82,6 +82,14 @@ class HomeViewController: BasicViewController, UITableViewDelegate {
         CoreData.saveContext()
     }
     
+    func userDidTask(sender: UIButton) {
+        
+    }
+    
+    func userProcrastinated(sender: UIButton) {
+        
+    }
+    
     // MARK: View lifecycle
     
     override func viewDidLoad() {
@@ -121,7 +129,10 @@ class HomeViewController: BasicViewController, UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if dataSource.isTaskPath(indexPath) {
-            
+            let alert: DialogView = DialogView()
+            alert.addButton(NSLocalizedString("I've done this!", comment: ""), type: .Default).addTarget(self, action: "userDidTask:", forControlEvents: .TouchUpInside)
+            alert.addButton(NSLocalizedString("Procrastinate!", comment: ""), type: .Destruct).addTarget(self, action: "userProcrastinated:", forControlEvents: .TouchUpInside)
+            alert.showInController(self)
         }
         else {
             CoreData.newTask("Lorem ipsum dolor sit amet pyco woe v2! My new CoreData task no.: " + String(indexPath.row), points: 1, when: NSDate.init())
