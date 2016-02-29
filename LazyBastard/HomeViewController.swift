@@ -41,18 +41,18 @@ class HomeViewController: BasicViewController, UITableViewDelegate {
     // MARK: Creating elements
     
     private func configureBottomBcg() {
-        bottomBackground.backgroundColor = Theme.addTaskBackgroundColor()
+        self.bottomBackground.backgroundColor = Theme.addTaskBackgroundColor()
         self.view.addSubview(bottomBackground)
     }
     
     private func configureVotingView() {
-        votingView.upVoteButton.addTarget(self, action: "upVoteAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        votingView.downVoteButton.addTarget(self, action: "downVoteAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.votingView.upVoteButton.addTarget(self, action: "upVoteAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.votingView.downVoteButton.addTarget(self, action: "downVoteAction:", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     private func configureTableView() {
-        tasksTableView.dataSource = dataSource
-        tasksTableView.delegate = self
+        self.tasksTableView.dataSource = self.dataSource
+        self.tasksTableView.delegate = self
         
         self.view.addSubview(tasksTableView)
     }
@@ -68,8 +68,8 @@ class HomeViewController: BasicViewController, UITableViewDelegate {
     // MARK: Actions
     
     private func reloadData() {
-        dataSource.reloadData()
-        tasksTableView.reloadData()
+        self.dataSource.reloadData()
+        self.tasksTableView.reloadData()
     }
     
     func upVoteAction(sender: UIButton) {
@@ -82,12 +82,34 @@ class HomeViewController: BasicViewController, UITableViewDelegate {
         CoreData.saveContext()
     }
     
-    func userDidTask(sender: UIButton) {
+    func userDidTask(sender: DialogButton) {
+        let task: LABTask = sender.dialogView.object as! LABTask
+        task.done = true
         
+        let event: LABEvent = CoreData.newEvent(task.points)
+        task.addEventsObject(event)
+        event.task = task
+        
+        CoreData.saveContext()
+        
+        sender.dialogView.hide(true)
     }
     
-    func userProcrastinated(sender: UIButton) {
+    func userProcrastinated(sender: DialogButton) {
+        let task: LABTask = sender.dialogView.object as! LABTask
+        task.done = false
         
+        let event: LABEvent = CoreData.newEvent((task.points * -1))
+        task.addEventsObject(event)
+        event.task = task
+        
+        CoreData.saveContext()
+        
+        sender.dialogView.hide(true)
+    }
+    
+    func cancel(sender: DialogButton) {
+        sender.dialogView.hide(true)
     }
     
     // MARK: View lifecycle
@@ -118,7 +140,7 @@ class HomeViewController: BasicViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return (section == 1) ? votingView : nil
+        return (section == 1) ? self.votingView : nil
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -128,20 +150,47 @@ class HomeViewController: BasicViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if dataSource.isTaskPath(indexPath) {
-            let alert: DialogView = DialogView()
-            alert.addButton(NSLocalizedString("I've done this!", comment: ""), type: .Default).addTarget(self, action: "userDidTask:", forControlEvents: .TouchUpInside)
-            alert.addButton(NSLocalizedString("Procrastinate!", comment: ""), type: .Destruct).addTarget(self, action: "userProcrastinated:", forControlEvents: .TouchUpInside)
-            alert.showInController(self)
+        if indexPath.section == 0 {
+            
         }
         else {
-            CoreData.newTask("Lorem ipsum dolor sit amet pyco woe v2! My new CoreData task no.: " + String(indexPath.row), points: 1, when: NSDate.init())
-            CoreData.saveContext()
-            self.reloadData()
-            
-            let lastItem: NSIndexPath = NSIndexPath(forRow: (indexPath.row + 1), inSection: indexPath.section)
-            
-            tableView.scrollToRowAtIndexPath(lastItem, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+            if dataSource.isTaskPath(indexPath) {
+                let task: LABTask = self.dataSource.data![indexPath.row]
+                
+                let alert: DialogView = DialogView()
+                
+                var attr: [String: AnyObject] = [String: AnyObject]();
+                attr[NSFontAttributeName] = Theme.appBoldFontWithSize(16)
+                alert.setTitle(NSLocalizedString("ProcrastiTask!", comment: "Name of the procrastination task alert window"), attributes: attr)
+                
+                attr[NSFontAttributeName] = Theme.appFontWithSize(14)
+                alert.setMessage(task.task!, attributes: attr)
+                
+                var button: DialogButton = alert.addButton(NSLocalizedString("I've done this!", comment: "Button title for accepted task"), type: .Accept)
+                button.addTarget(self, action: "userDidTask:", forControlEvents: .TouchUpInside)
+                button.titleLabel?.font = Theme.appBoldFontWithSize(14)
+                
+                button = alert.addButton(NSLocalizedString("Procrastinate!", comment: "Button title for passing on a task"), type: .Destruct)
+                button.addTarget(self, action: "userProcrastinated:", forControlEvents: .TouchUpInside)
+                button.titleLabel?.font = Theme.appBoldFontWithSize(14)
+                
+                button = alert.addButton(NSLocalizedString("Cancel", comment: "Cancel"), type: .Done)
+                button.addTarget(self, action: "cancel:", forControlEvents: .TouchUpInside)
+                button.titleLabel?.font = Theme.appBoldFontWithSize(14)
+                
+                alert.object = task
+                
+                alert.showInController(self)
+            }
+            else {
+                CoreData.newTask("Lorem ipsum dolor sit amet pyco woe v2! My new CoreData task no.: " + String(indexPath.row), points: 1, when: NSDate.init())
+                CoreData.saveContext()
+                self.reloadData()
+                
+                let lastItem: NSIndexPath = NSIndexPath(forRow: (indexPath.row + 1), inSection: indexPath.section)
+                
+                tableView.scrollToRowAtIndexPath(lastItem, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+            }
         }
     }
 

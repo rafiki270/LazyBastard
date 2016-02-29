@@ -17,7 +17,7 @@ let TasksDataSourceStatsCellIdentifier = "statsCell"
 class TasksDataSource : NSObject, UITableViewDataSource {
     
     
-    var data: [LABTask]? = []
+    internal var data: [LABTask]? = []
     
     
     // MARK: Public helper methods

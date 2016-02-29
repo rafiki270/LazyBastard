@@ -44,7 +44,7 @@ class VotingView : BasicView {
         downVoteButton.setTitleColor(Theme.votingDownVoteColor(), forState: UIControlState.Normal)
         downVoteButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
         
-        downVoteButton.setTitle(NSLocalizedString("Didn't do it :(", comment: "Down-vote text"), forState: UIControlState.Normal)
+        downVoteButton.setTitle(NSLocalizedString("Just procrastinated!", comment: "Down-vote text"), forState: UIControlState.Normal)
         
         self.addSubview(downVoteButton)
     }
@@ -54,7 +54,7 @@ class VotingView : BasicView {
         upVoteButton.setTitleColor(Theme.votingUpVoteColor(), forState: UIControlState.Normal)
         upVoteButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
         
-        upVoteButton.setTitle(NSLocalizedString("Just did it! :)", comment: "Up-vote text"), forState: UIControlState.Normal)
+        upVoteButton.setTitle(NSLocalizedString("Deed is done!", comment: "Up-vote text"), forState: UIControlState.Normal)
         
         self.addSubview(upVoteButton)
     }

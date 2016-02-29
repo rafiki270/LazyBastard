@@ -23,20 +23,29 @@ public class DialogView : UIView {
     // MARK Configuration
     
     public var tapOnCurtainClosesDialog: Bool = true
+    public var innerDialogPadding: CGFloat = 20
+    public var dialodViewWidth: CGFloat = 240
+    
+    public var buttonHeight: CGFloat = 40
+    public var buttonPadding: CGFloat = 12
     
     public var canvasView: UIView = UIView()
     public var curtainView: DialogCurtainView = DialogCurtainView()
     
     public var animationDuration: NSTimeInterval = 0.2
     
+    public var object: AnyObject? // Can be used for example to store NSIndexPath, CoreData object, etc ...
+    
     
     // MARK: Private variables
     
     private var title: String?
     private var titleAttributes: [String: AnyObject]?
+    private var titleLabel: UILabel?
     
     private var message: String?
     private var messageAttributes: [String: AnyObject]?
+    private var messageLabel: UILabel?
     
     private var buttons: [DialogButton] = [DialogButton]()
     private var activeController: UIViewController? = nil
@@ -56,18 +65,94 @@ public class DialogView : UIView {
              make.edges.equalTo(self.superview!)
         }
         
-        if title != nil && title?.characters.count > 0 {
-            let titleLabel: UILabel = self.label(title!, attributes: titleAttributes, bold: true)
-            self.canvasView.addSubview(titleLabel)
-            
-            titleLabel.snp_makeConstraints{ (make) -> Void in
-                make.left.top.equalTo(20)
-                make.right.equalTo(-20)
-                make.height.equalTo(60)
+        var lastElement: UIView?
+        
+        // Add labels
+        self.createLabels(&lastElement)
+        
+        // Add buttons
+        self.createButtons(&lastElement)
+        
+        // Set canvas size
+        self.canvasView.snp_makeConstraints { (make) -> Void in
+            make.center.equalTo(self.snp_center)
+            make.width.equalTo(self.dialodViewWidth)
+            if (lastElement != nil) {
+                make.bottom.equalTo((lastElement?.snp_bottom)!).offset(self.innerDialogPadding)
+            }
+            else {
+                make.height.equalTo(240)
             }
         }
         
-        // Show views
+        // Display views
+        self.showViews()
+    }
+    
+    private func createLabels(inout lastElement: UIView?) {
+        // Title label
+        if titleLabel != nil {
+            titleLabel = self.label(title!, attributes: titleAttributes, bold: true)
+            self.canvasView.addSubview(titleLabel!)
+            
+            self.titleLabel?.preferredMaxLayoutWidth = (self.dialodViewWidth - (2 * self.innerDialogPadding))
+            self.titleLabel!.snp_makeConstraints{ (make) -> Void in
+                make.left.top.equalTo(self.innerDialogPadding)
+                make.right.equalTo(self.innerDialogPadding * -1)
+            }
+            
+            lastElement = self.titleLabel
+        }
+        
+        // Message label
+        if self.messageLabel != nil {
+            self.canvasView.addSubview(self.messageLabel!)
+            
+            self.messageLabel?.preferredMaxLayoutWidth = (self.dialodViewWidth - (2 * self.innerDialogPadding))
+            self.messageLabel!.snp_makeConstraints{ (make) -> Void in
+                make.top.equalTo(((self.titleLabel != nil) ? (titleLabel?.snp_bottom)! : self.canvasView.snp_top)).offset(innerDialogPadding)
+                make.left.equalTo(self.innerDialogPadding)
+                make.right.equalTo(self.innerDialogPadding * -1)
+            }
+            
+            lastElement = self.messageLabel
+        }
+    }
+    
+    private func createButtons(inout lastElement: UIView?) {
+        if buttons.count > 0 {
+            var lastButton: DialogButton?
+            for b: DialogButton in self.buttons {
+                self.canvasView.addSubview(b)
+                b.snp_makeConstraints(closure: { (make) -> Void in
+                    if lastButton == nil {
+                        if self.messageLabel != nil {
+                            make.top.equalTo((self.messageLabel?.snp_bottom)!).offset(self.innerDialogPadding)
+                        }
+                        else {
+                            if self.titleLabel != nil {
+                                make.top.equalTo((self.titleLabel?.snp_bottom)!).offset(self.innerDialogPadding)
+                            }
+                            else {
+                                make.top.equalTo(self.innerDialogPadding)
+                            }
+                        }
+                    }
+                    else {
+                        make.top.equalTo((lastButton?.snp_bottom)!).offset(self.buttonPadding)
+                    }
+                    make.left.equalTo(self.innerDialogPadding)
+                    make.right.equalTo(self.innerDialogPadding * -1)
+                    make.height.equalTo(self.buttonHeight)
+                })
+                lastButton = b
+                
+                lastElement = b
+            }
+        }
+    }
+    
+    private func showViews() {
         curtainView.hidden = false
         canvasView.hidden = false
         
@@ -106,8 +191,20 @@ public class DialogView : UIView {
     
     // MARK: Configuring view
     
-    public func addTitle(title: String) {
+    public func setTitle(titleString: String, attributes: [String: AnyObject] = [String: AnyObject]()) -> UILabel {
+        self.title = titleString
+        self.titleAttributes = attributes
         
+        self.titleLabel = self.label(self.title!, attributes: self.titleAttributes, bold: true)
+        return self.titleLabel!
+    }
+    
+    public func setMessage(messageString: String, attributes: [String: AnyObject] = [String: AnyObject]()) -> UILabel {
+        self.message = messageString
+        self.messageAttributes = attributes
+        
+        self.messageLabel = self.label(self.message!, attributes: self.messageAttributes, bold: false)
+        return self.messageLabel!
     }
     
     public func addButton(button: DialogButton) {
@@ -122,9 +219,11 @@ public class DialogView : UIView {
         button.backgroundColor = backgroundColor
         button.layer.cornerRadius = cornerRadius
         button.clipsToBounds = true
+        button.titleLabel?.font = UIFont.boldSystemFontOfSize(14)
         
         button.defaultBackgroundColor = backgroundColor
         button.highlightedBackgroundColor = backgroundColor
+        button.dialogView = self
         
         self.addButton(button)
         
@@ -139,12 +238,12 @@ public class DialogView : UIView {
         switch (type) {
         case .Accept:
             textColor = UIColor.whiteColor()
-            backgroundColor = UIColor.greenColor()
+            backgroundColor = UIColor.init(colorLiteralRed: (16 / 255), green: (182 / 255), blue: (113 / 255), alpha: 1)
             highlightedBackgroundColor = UIColor.lightGrayColor()
             break
         case .Destruct:
             textColor = UIColor.whiteColor()
-            backgroundColor = UIColor.redColor()
+            backgroundColor = UIColor.init(colorLiteralRed: (195 / 255), green: (36 / 255), blue: (39 / 255), alpha: 1)
             highlightedBackgroundColor = UIColor.darkGrayColor()
             break
         case .Done:
@@ -179,22 +278,23 @@ public class DialogView : UIView {
         let label: UILabel = UILabel()
         
         label.backgroundColor = UIColor.clearColor()
-        label.textAlignment = .Justified
+        label.textAlignment = .Center
+        label.numberOfLines = 0
         
-        let attributedString: NSMutableAttributedString = NSMutableAttributedString()
+        let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: text)
         if attributes == nil {
             attributes = [String: AnyObject]()
         }
         if attributes![NSFontAttributeName] == nil {
-            attributes![NSFontAttributeName] = (bold ? UIFont.boldSystemFontOfSize(16) : UIFont.systemFontOfSize(16))
+            attributes![NSFontAttributeName] = (bold ? UIFont.boldSystemFontOfSize(18) : UIFont.systemFontOfSize(14))
         }
         if attributes![NSForegroundColorAttributeName] == nil {
-            attributes![NSForegroundColorAttributeName] = UIColor.whiteColor()
+            attributes![NSForegroundColorAttributeName] = UIColor.darkGrayColor()
         }
         if attributes![NSBackgroundColorAttributeName] == nil {
             attributes![NSBackgroundColorAttributeName] = UIColor.clearColor()
         }
-        attributedString.addAttributes(attributes!, range: NSRange(location: 0, length: text.characters.count))
+        attributedString.addAttributes(attributes!, range: NSRange.init(location: 0, length: text.characters.count))
         
         label.attributedText = attributedString
         
@@ -209,11 +309,15 @@ public class DialogView : UIView {
     }
     
     private func addCanvasView() {
+        self.canvasView.layer.cornerRadius = 4
+        self.canvasView.backgroundColor = UIColor.whiteColor()
+        
         self.addSubview(self.canvasView)
     }
     
     private func addSubviews() {
         self.addCurtainView()
+        self.addCanvasView()
     }
     
     // MARK: Actions
@@ -268,7 +372,9 @@ public class DialogCurtainView : UIView {
 
 public class DialogButton : UIButton {
     
-    var defaultBackgroundColor: UIColor?
-    var highlightedBackgroundColor: UIColor?
+    internal var defaultBackgroundColor: UIColor!
+    internal var highlightedBackgroundColor: UIColor!
+    
+    public var dialogView: DialogView!
     
 }

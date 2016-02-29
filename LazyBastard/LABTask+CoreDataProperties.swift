@@ -21,5 +21,10 @@ extension LABTask {
     @NSManaged var done: Bool
     @NSManaged var when: NSDate?
     @NSManaged var events: NSSet?
+    
+    @NSManaged func addEventsObject(event: LABEvent)
+    @NSManaged func removeEventsObject(event: LABEvent)
+    @NSManaged func addEvents(Events: NSSet)
+    @NSManaged func removeEvents(Events: NSSet)
 
 }

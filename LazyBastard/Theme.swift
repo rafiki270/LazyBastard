@@ -27,7 +27,7 @@ class Theme : NSObject {
     }
     
     static func appBoldFontWithSize(size: CGFloat) -> UIFont {
-        return UIFont.init(name: "HelveticaNeue-Medium", size: size)!
+        return UIFont.init(name: "HelveticaNeue-Light", size: size)!
     }
     
     // MARK: Colors
@@ -71,7 +71,6 @@ class Theme : NSObject {
     }
     
     static func statusBarColor() -> UIColor {
-        //return UIColor(CGColor: Theme.statsGradientColors().last!)
         return UIColor.clearColor()
     }
     
