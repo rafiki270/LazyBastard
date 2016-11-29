@@ -7,4 +7,5 @@ target 'LazyBastard', :exclusive => true do
     pod 'Alamofire', '~> 3.2.0'
     #    pod 'FontAwesome.swift', '~> 0.7.0'
     pod 'IoniconsSwift', :git => 'http://github.com/rafiki270/IoniconsSwift.git', :branch => 'cocoapods'
+    pod 'DialogView', :git => 'http://github.com/manGoweb/DialogView.git', :branch => 'master'
 end

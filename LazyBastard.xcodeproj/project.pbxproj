@@ -35,7 +35,6 @@
 		15A4750F1C7E762700C0C568 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A4750E1C7E762700C0C568 /* NSDate+Helpers.swift */; };
 		15A475111C7E780E00C0C568 /* BasicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A475101C7E780E00C0C568 /* BasicTableView.swift */; };
 		15A475131C7E83C400C0C568 /* UIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A475121C7E83C400C0C568 /* UIView+Borders.swift */; };
-		15A475171C7F253300C0C568 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A475161C7F253300C0C568 /* DialogView.swift */; };
 		AAEC17758B84A3905E6BC9EE /* Pods_LazyBastard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4017433B7FE9DE0250C64A45 /* Pods_LazyBastard.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -92,7 +91,6 @@
 		15A475101C7E780E00C0C568 /* BasicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableView.swift; sourceTree = "<group>"; };
 		15A475121C7E83C400C0C568 /* UIView+Borders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Borders.swift"; sourceTree = "<group>"; };
 		15A475141C7E87BE00C0C568 /* BridgingHeaderFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeaderFile.h; sourceTree = "<group>"; };
-		15A475161C7F253300C0C568 /* DialogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		245106C73A4A0CA70D3326D8 /* Pods-LazyBastard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyBastard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LazyBastard/Pods-LazyBastard.debug.xcconfig"; sourceTree = "<group>"; };
 		4017433B7FE9DE0250C64A45 /* Pods_LazyBastard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazyBastard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9FDFF136C70A05ADCA9E09B /* Pods-LazyBastard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazyBastard.release.xcconfig"; path = "Pods/Target Support Files/Pods-LazyBastard/Pods-LazyBastard.release.xcconfig"; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 		15A475151C7F24F000C0C568 /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
-				15A475161C7F253300C0C568 /* DialogView.swift */,
 			);
 			name = Dialogs;
 			sourceTree = "<group>";
@@ -529,7 +526,6 @@
 			files = (
 				150F08391C6D56B900709858 /* LABEvent.swift in Sources */,
 				150F08451C6D5DBD00709858 /* TasksDataSource.swift in Sources */,
-				15A475171C7F253300C0C568 /* DialogView.swift in Sources */,
 				150F083A1C6D56B900709858 /* LABTask+CoreDataProperties.swift in Sources */,
 				150F08561C6E144C00709858 /* BasicTableViewCell.swift in Sources */,
 				15A4750F1C7E762700C0C568 /* NSDate+Helpers.swift in Sources */,
